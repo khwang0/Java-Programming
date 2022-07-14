@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>A Short Java Course</title>
+        <title>Exercise 2</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -152,59 +152,156 @@ body.marp-vscode blockquote {
         
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="a-short-java-course">A Short Java Course</h1>
-<p>By Dr. Kevin Wang</p>
-<h2 id="introduction">Introduction</h2>
-<p>This course provides a basic introduction to Java programming. We will learn some basic syntaxes including variables, conditions, loops, arrays, methods, and a little about class. We recommend you to spend six weeks on this course. Each week you should read the material and do some exercises.</p>
-<h2 id="schedule">Schedule</h2>
-<table>
-<thead>
-<tr>
-<th>Week</th>
-<th>Topic</th>
-<th>Additional Material</th>
-<th>Exercise</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><a href="01_introduction.pdf">Migrated from Python and Java Basics</a></td>
-<td>Slide: <a href="f01_variables_and_operators.pdf">Self Study Material #1</a><br> Video: <a href="https://www.youtube.com/watch?v=0LMkCS-QTPA&amp;list=PLe4PAiEiCzBTOiqDxgh71DLTwRVhXRST3&amp;index=2">#1a</a> <a href="https://www.youtube.com/watch?v=cOuHhzOnChQ&amp;list=PLe4PAiEiCzBTOiqDxgh71DLTwRVhXRST3&amp;index=3">#1b</a> <a href="https://www.youtube.com/watch?v=4I5jt_YiXkY&amp;list=PLe4PAiEiCzBTOiqDxgh71DLTwRVhXRST3&amp;index=5">#1c</a></td>
-<td><a href="docs/ex1.html">Exercise 1</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td><a href="02-problem%20solving%20with%20Java%201.pdf">Problem Solving with Java #1</a></td>
-<td><a href="f02-decision.pdf">Self Study Material #2</a> <br> <a href="f03-loops.pdf">Self Study Material #3</a></td>
-<td><a href="docs/ex2.html">Exercise 2</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td><a href="03-problem%20solving%20with%20Java%202.pdf">Problem Solving with Java #2</a></td>
-<td><a href="f04-scopes%20and%20IO.pdf">Self Study Material #4</a></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Arrays</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td>Methods</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Class</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+        <h1 id="exercise-2">Exercise 2</h1>
+<style>
+    ol {
+        list-style-type: upper-alpha;
+    }
+    .ss  ol {
+        list-style-type: lower-roman;
+    }
+
+    body {
+        counter-reset: h3counter;
+    }
+
+    div.row {
+        /* display: inline; */
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+        counter-reset: h3counter;
+        column-rule-style: solid;
+        column-rule-color: #000;
+        column-rule-width: 1px;
+        width: 98%;
+    }
+    div.question {
+        display: inline-block;
+        vertical-align: top;
+    }
+    h3:before {
+        content: "Q" counter(h3counter);
+        font-weight: bold;
+        counter-increment: h3counter;
+    }
+    h3 {
+        margin-bottom: 10px;
+    }
+    code {
+        background-color: rgba(200, 200, 200, 0.2);
+    }
+    .vscode-light pre {
+        background-color: rgba(200, 200, 200, 0.2);
+    }
+    .hljs-number {
+        color: initial;
+        font-weight: bold;
+    }
+    input +  div  ans { display: none; }
+    input +  div  ans:before { display: none; }
+    input:checked +  div  ans {
+        display: inline ;font-weight: bold; color: blue;
+    }
+    input:checked +  div  ans:before {
+        display: inline;
+        content: "☑️";
+    }
+    input {
+        display: block;
+        width: 200px;
+    }
+    input:before {
+        content: 'Reveal Answer';
+    }
+</style>
+<h1 id="a-reflection-questions">A. Reflection Questions</h1>
+<input type='checkbox'>
+<div class='question'>
+<h3 id=""></h3>
+<p>Consider the following variable names and decide which one of the statements is <strong>true</strong>.</p>
+<div class=ss>
+<ol>
+<li><code>A__P_P_12e</code></li>
+<li><code>For</code></li>
+<li><code>_1999</code></li>
+<li><code>u3325</code></li>
+<li><code>oop</code></li>
+</ol>
+</div>
+<ol>
+<li>Only v is a valid variable name.</li>
+<li>Only iii is an invalid variable name.</li>
+<li>Both i and iii are invalid variable names.</li>
+<li>Either ii or iv is an invalid variable name.</li>
+<li>All variable names are valid. <ans/></li>
+</ol>
+<p><ans>For is capital, so no problem. _1999 is tricky, but it works (mentioned in notes already).</ans></p>
+</div>
+<input type='checkbox'>
+<div class=question>
+<h3 id="-1"></h3>
+<p>The following code outputs</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span> bb, cc;
+bb = <span class="hljs-number">4</span>;  <span class="hljs-comment">//which is 0b100 in binary</span>
+cc = <span class="hljs-number">5</span>;  <span class="hljs-comment">//which is 0b101 in binary</span>
+bb = bb ^ cc;
+cc = bb ^ cc;
+bb = bb ^ cc;
+System.out.printf(<span class="hljs-string">&quot;%d %d\n&quot;</span>, bb, cc);
+</div></code></pre>
+<ol>
+<li>100 101</li>
+<li>101 101</li>
+<li>5 5</li>
+<li>5 4 <ans/></li>
+<li>none of the above answer</li>
+</ol>
+<p><ans>This is a classic way to swap two integers without using an additional variable. After the first step, <code>bb</code> becomes 4^5. At the second step <code>cc</code> becomes 4^5^5 which is 4. At the third step <code>bb</code> becomes 4^5^4, which is 5</ans></p>
+</div>
+<input type='checkbox'>
+<div class=question>
+<h3 id="-2"></h3>
+<p>Which of the following conditions are equivalent to</p>
+<pre><code class="language-java"><div>(x &gt; <span class="hljs-number">5</span> &amp;&amp; x &lt;= <span class="hljs-number">10</span>) || !(y &gt; <span class="hljs-number">3</span>))
+</div></code></pre>
+<ol>
+<li><code>(y &lt; 3 &amp;&amp; x &gt; 5) || (y &lt; 3 &amp;&amp; x &lt;=10)</code></li>
+<li><code>(y &lt;= 3 &amp;&amp; x &gt; 5) || (y &lt;= 3 &amp;&amp; x &lt;=10)</code></li>
+<li><code>(y &lt;= 3 || x &gt; 5) &amp;&amp; (y &lt;= 3 || x &lt;=10)</code> <ans/></li>
+<li><code>(y &lt;= 3 || x &gt; 5) || (y &lt;= 3 || x &lt;=10)</code></li>
+<li><code>(y &lt;= 3 || x &lt;= 10) &amp;&amp; x &gt; 5</code></li>
+</ol>
+<p><ans>The original condition is true if y &lt;= 3 or x is between 5 to 10 (including 10).</ans></p>
+</div>
+<h1 id="b-programming-exercise">B. Programming exercise</h1>
+<h3 id="-3"></h3>
+<p>Create a fraction number adder.</p>
+<pre><code class="language-txt"><div>Please enter the first fraction number:
+1 / 0
+Invalid, re-enter!
+1 / 5
+Please enter the second fraction number:
+2 / 6
+The sum for these two numbers are:
+8 / 15
+</div></code></pre>
+<h3 id="-4"></h3>
+<p>Accept many numbers from the user until a negative number is inputted. Output the biggest number and indicate which number is it.</p>
+<pre><code class="language-txt"><div>Enter the numbers:
+34
+11
+88
+142
+55
+-1
+The biggest number is the 4-th number, 142.
+</div></code></pre>
+<h1 id="c-a-bigger-problem">C. A bigger problem</h1>
+<p>Find the GCD of two numbers using Euclidean Method <a href="https://www.youtube.com/watch?v=fwuj4yzoX1o">(learn Euclidean here)</a></p>
 
         
         <script async type="text/javascript">
