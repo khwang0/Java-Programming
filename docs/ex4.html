@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Exercise 3</title>
+        <title>Exercise 4</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -152,7 +152,7 @@ body.marp-vscode blockquote {
         
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="exercise-3">Exercise 3</h1>
+        <h1 id="exercise-4">Exercise 4</h1>
 <style>
     ol {
         list-style-type: upper-alpha;
@@ -222,129 +222,96 @@ body.marp-vscode blockquote {
 <input type='checkbox'>
 <div class=question>
 <h3 id=""></h3>
-<p>Which of the following statements about the expression <code>(int) '3'</code> is true?</p>
-<div class=ss>
+<p>Which of the following way to initiate an array is correct?</p>
 <ol>
-<li>This is an int.</li>
-<li>This expression is internally represented by the integer 3.</li>
-<li><code>System.out.println(((int) '3') + 1);</code> prints 4 on the screen.</li>
+<li><code>int x[] = new int[10]; </code>. <ans/></li>
+<li><code>int x[] = new x[10];</code></li>
+<li><code>int x = new int[10];</code></li>
+<li><code>int x[10];</code></li>
+<li><code>int x = {1, 2, 3};</code></li>
 </ol>
+<p><ans>2 is wrong since <code>x</code> is not a type. We expect an int array on the right hand side. 3 and 5 are incorrect because <code>x</code> is declared as an integer, not an array. 4 is incorrect in Java. It is actually acceptable in C/C++.  </ans></p>
 </div>
-<ol>
-<li>Only i is true. <ans/></li>
-<li>Only ii is true.</li>
-<li>Only iii is true.</li>
-<li>Only i and iii are true.</li>
-<li>All statements are true.</li>
-</ol>
-<p><ans>'3' has the ASCII/Unicode value of 51 (no need to remember, as long as it is not 3), thus statement 2 is wrong. After casting, it takes the value of 51, it prints 52 on the screen.</ans></p>
-</div><div class=question>
-<h3 id="-1"></h3>
-<p>What are the boolean values of the variables <code>a</code>, <code>b</code>, <code>c</code> respectively? Be careful please.</p>
-<pre><code class="language-java"><div><span class="hljs-keyword">boolean</span> a, b, c;
-a = b = c = <span class="hljs-keyword">false</span>;
-a = b == c;
-<span class="hljs-keyword">if</span> (a == b == c)
-    c = <span class="hljs-keyword">true</span>;
-</div></code></pre>
-<ol>
-<li><code>a</code>: true, <code>b</code>: false, <code>c</code>: false</li>
-<li><code>a</code>: true, <code>b</code>: false, <code>c</code>: true <ans/></li>
-<li><code>a</code>: false, <code>b</code>:  false, <code>c</code>: false</li>
-<li><code>a</code>: false, <code>b</code>:  false, <code>c</code>: true</li>
-<li><code>a</code>: true,  <code>b</code>: true, <code>c</code>: false</li>
-</ol>
-<p><ans><code>a = b == c</code> turns <code>a</code> to true (becoz b == c is true). <code>if (a==b==c)</code> read from left to right, <code>a == b</code> is false, and <code>c</code> is false so <code>false == c</code> is correct (true).</ans></p>
-</div>
-<input type='checkbox'>
+<input type=checkbox>
 <div class=question>
-<h3 id="-2"></h3>
-<p>Be careful please. Consider the code below:</p>
-<pre><code class="language-java"><div><span class="hljs-comment">//some value assigned to int x;</span>
-<span class="hljs-keyword">switch</span> (x) { 
-    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: System.out.print(<span class="hljs-string">&quot;A&quot;</span>);
-    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>: System.out.print(<span class="hljs-string">&quot;B&quot;</span>);
-            <span class="hljs-keyword">break</span>; 
-    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: System.out.print(<span class="hljs-string">&quot;C&quot;</span>); <span class="hljs-keyword">break</span>; 
-    <span class="hljs-keyword">default</span>: 
-            System.out.print(<span class="hljs-string">&quot;D&quot;</span>);
-} 
+<h3 id="-1"></h3>
+<p>Fill the missing line so that the program would be able to find the maximum number.</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span>[] num = {<span class="hljs-number">11</span>, <span class="hljs-number">22</span>, <span class="hljs-number">33</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>};
+<span class="hljs-keyword">int</span> max = num[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = num.length; i &gt; <span class="hljs-number">0</span>; i--) {
+    <span class="hljs-comment">// fill here</span>
+}
+System.out.println(<span class="hljs-string">&quot;Max: &quot;</span> + max);
 </div></code></pre>
-<p>If this code is executed twice. The first time <code>x</code> takes the value 1, the second time <code>x</code> takes the value 2. What is the output of the program?</p>
-<ol>
-<li>AC</li>
-<li>ABC <ans/></li>
-<li>ACD</li>
-<li>ABCD</li>
-<li>The program does not compile because the syntax of switch is wrong.</li>
-</ol>
-<p><ans>In the first time the letters AB are printed, in the second time C is printed. Be mindful of where the <code>break</code>s are.</ans></p>
+<ans>
+<pre><code class="language-java"><div><span class="hljs-keyword">if</span> (num[i - <span class="hljs-number">1</span>] &gt;= max)
+    max = num[i - <span class="hljs-number">1</span>];
+</div></code></pre>
+<p>Be careful, index always starts from 0 up to <code>length - 1</code>!
+</ans></p>
 </div>
 <h1 id="b-programming-exercise">B. Programming exercise</h1>
-<p>In today's exercise, we are going to play with some String questions. First of all, we need to learn some String APIs.</p>
-<ol>
-<li><code>charAt</code> - return a character of a string</li>
-</ol>
-<pre><code class="language-java"><div>String txt = <span class="hljs-string">&quot;abcde&quot;</span>;
-<span class="hljs-keyword">char</span> a1 = txt.charAt(<span class="hljs-number">2</span>); <span class="hljs-comment">//contains &#x27;c&#x27;</span>
-<span class="hljs-keyword">char</span> a2 = txt.charAt(<span class="hljs-number">0</span>); <span class="hljs-comment">//contains &#x27;a&#x27;</span>
+<p>Today we are going to implement a game <strong>No Thanks!</strong> using Array. In part B you are given some exercises to perform some mini-task of the game. These mini-tasks can be reused in making the program.</p>
+<h3 id="prepare-a-deck-of-card">Prepare a deck of card</h3>
+<p>The game has 33 cards in total and 9 of them are removed from the game. Your job is to remove 9 random cards from the deck. Print them out. Further remove a card from the deck and print the card and the deck out, like below.</p>
+<pre><code><code><div>Card in the deck: 3, 4, 5, 6, 8, 10, 12, 13, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 29, 30, 31, 32, 33, 34
+Draw a card from the deck: 8
+The remaining card in the deck: 3, 4, 5, 6, 10, 12, 13, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 29, 30, 31, 32, 33, 34
+</div></code></code></pre>
+<p>You may need to use the random function on lecture 2 page 21.</p>
+<p>Consider using a boolean array to start your program.</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">boolean</span>[] deck = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[<span class="hljs-number">33</span>];
 </div></code></pre>
-<ol start="2">
-<li><code>length</code> - return the length of a string</li>
-</ol>
-<pre><code class="language-java"><div>String txt = <span class="hljs-string">&quot;abcde&quot;</span>;
-<span class="hljs-keyword">int</span> length = txt.length(); <span class="hljs-comment">//5</span>
-<span class="hljs-keyword">int</span> doublelength = (txt + txt).length(); <span class="hljs-comment">//10 because txt + txt is &quot;abcdeabcde&quot;</span>
+<h3 id="adding-a-card-to-a-player">Adding a card to a player</h3>
+<p>Suppose a player has an array of cards. Write a program that allow you to add a card into the <strong>correct position</strong> of the array. For example</p>
+<pre><code><code><div>Current card pile: 4, 5, 11, 12, 13, 20
+Name a card to insert: 15 
+The new card pile: 4, 5, 11, 12, 13, 15, 20
+</div></code></code></pre>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span> card[] = {<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">20</span>};
+<span class="hljs-comment">//... add your code here.</span>
 </div></code></pre>
-<ol start="3">
-<li><code>substring</code> - return a part of a string.</li>
-</ol>
-<pre><code class="language-java"><div>String txt = <span class="hljs-string">&quot;I am a boy&quot;</span>;
-String s = txt.substring(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// extract from position 0 to 2 - &quot;I a&quot;</span>
-String s2 = txt.substring(<span class="hljs-number">4</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// &quot; a boy&quot;;</span>
+<p>Note: your program should also work with an empty card pile.</p>
+<h3 id="paying-coins">Paying coins</h3>
+<p>Assume three players are playing the game. The number of coins they have are stored in an array. All of them starts with 11 coins. They keep say &quot;N&quot; (for No thanks!) until one of them say &quot;Y&quot; who take all coins. Player without coins can't say &quot;N&quot; in theory, but we will let go in this version.</p>
+<pre><code class="language-txt"><div>player 1, You have 11 coins. 0 coins on the table. Want this card? N
+player 2, You have 11 coins. 1 coins on the table. Want this card? N
+player 3, You have 11 coins. 2 coins on the table. Want this card? N
+player 1, You have 10 coins. 3 coins on the table. Want this card? N
+player 2, You have 10 coins. 4 coins on the table. Want this card? N
+player 3, You have 10 coins. 5 coins on the table. Want this card? N
+player 1, You have 9 coins. 6 coins on the table. Want this card? Y
+----
+Total number of coins:
+player 1: 15
+player 2: 9
+player 3: 9
 </div></code></pre>
-<ol start="4">
-<li><code>contains</code> - return true if the string contain a specific char</li>
-</ol>
-<pre><code class="language-java"><div>String txt = <span class="hljs-string">&quot;abcef&quot;</span>;
-<span class="hljs-keyword">boolean</span> b1 = txt.contains(<span class="hljs-string">&#x27;d&#x27;</span>); <span class="hljs-comment">//false</span>
-<span class="hljs-keyword">boolean</span> b2 = txt.contains(<span class="hljs-string">&#x27;E&#x27;</span>); <span class="hljs-comment">//false</span>
-<span class="hljs-keyword">boolean</span> b3 = txt.contains(<span class="hljs-string">&#x27;e&#x27;</span>); <span class="hljs-comment">//true</span>
-</div></code></pre>
-<ol start="5">
-<li><code>equals</code> - return true if two strings are identical</li>
-</ol>
-<pre><code class="language-java"><div>String txt = <span class="hljs-string">&quot;abcde&quot;</span>;
-String txt2 = <span class="hljs-string">&quot;abcd&quot;</span>;
-<span class="hljs-keyword">boolean</span> b1 = txt.equals(txt2); <span class="hljs-comment">//false</span>
-<span class="hljs-keyword">boolean</span> b2 = txt.equals(txt2 + <span class="hljs-string">&quot;e&quot;</span> ); <span class="hljs-comment">// true</span>
-</div></code></pre>
-<ol start="6">
-<li><code>toUpperCase()</code> - return a new string that converts all characters to upper case</li>
-</ol>
-<pre><code class="language-java"><div>String txt = <span class="hljs-string">&quot;Kevin&quot;</span>;
-String txt2 = txt.toUpperCase(); <span class="hljs-comment">// KEVIN</span>
-txt = <span class="hljs-string">&quot;iPhone&quot;</span>;
-txt2 = txt.toUpperCase(); <span class="hljs-comment">//IPHONE</span>
-</div></code></pre>
-<h3 id="palindrome">Palindrome</h3>
-<p>Check if a given string is a palindrome, i.e., it spells exactly the same while reading it backward (e.g. civic, radar, level, rotor, reviver, racecar, madam)</p>
-<pre><code class="language-txt"><div>Input a word:
-civic
-It is a palindrome
-</div></code></pre>
-<pre><code class="language-txt"><div>Input a word:
-divided
-It is not a palindrome
-</div></code></pre>
-<h3 id="palindrome-sentence">Palindrome Sentence</h3>
-<p>Same as Q4, only this time we read the entire sentense discarding the space and puncuation. (Note: use <code>scanner.nextLine()</code> to read the whole-line input)</p>
-<pre><code class="language-txt"><div>Input a sentence
-Yo, banana boy!
-It is a palindrome
+<p>We starts with the code</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span>[] coins = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>];
+<span class="hljs-comment">//your code here</span>
 </div></code></pre>
 <h1 id="c-a-bigger-problem">C. A bigger problem</h1>
-<p>Try to find a root of a 4-th degree polynomial (i.e., ax<sup>4</sup> + bx<sup>3</sup> + cx<sup>2</sup> + dx + e = 0) for  p &lt; x &lt; q. Coefficients a,b,c,d,e and p,q are input by users. You can use either Bisection method or Newton method (need a little calculus) to do it.</p>
+<p>Complete the whole &quot;No Thanks!&quot; game. You are advised to make the game as a multi-player game. You may consider using the following skeleton as your starting code. It is up to you.</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span>[] coins = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>];
+<span class="hljs-keyword">int</span>[][] cards = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>][<span class="hljs-number">0</span>];
+<span class="hljs-keyword">boolean</span>[] deck = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[<span class="hljs-number">33</span>];
+<span class="hljs-keyword">boolean</span> finish = <span class="hljs-keyword">false</span>;
+<span class="hljs-keyword">int</span> currentPlayer = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span> (!finish) {
+    <span class="hljs-comment">//draw a card from the deck and print it out</span>
+
+    <span class="hljs-keyword">do</span> {
+        <span class="hljs-comment">//paying the coins</span>
+    } <span class="hljs-keyword">while</span> (....);
+
+    <span class="hljs-comment">//adding card for currentPlayer </span>
+    <span class="hljs-comment">//adding coins for currentPlayer</span>
+    <span class="hljs-comment">//we start the next round with currentPlayer.</span>
+}
+
+<span class="hljs-comment">//counting the score.</span>
+</div></code></pre>
 
         
         <script async type="text/javascript">
