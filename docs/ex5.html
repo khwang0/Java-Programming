@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>A Short Java Course</title>
+        <title>Exercise 5</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -152,59 +152,132 @@ body.marp-vscode blockquote {
         
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="a-short-java-course">A Short Java Course</h1>
-<p>By Dr. Kevin Wang</p>
-<h2 id="introduction">Introduction</h2>
-<p>This course provides a basic introduction to Java programming. We will learn some basic syntaxes including variables, conditions, loops, arrays, methods, and a little about class. We recommend you to spend six weeks on this course. Each week you should read the material and do some exercises.</p>
-<h2 id="schedule">Schedule</h2>
-<table>
-<thead>
-<tr>
-<th>Week</th>
-<th>Topic</th>
-<th>Additional Material</th>
-<th>Exercise</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><a href="01_introduction.pdf">Migrated from Python and Java Basics</a></td>
-<td>Slide: <a href="f01_variables_and_operators.pdf">Self Study Material #1</a><br> Video: <a href="https://www.youtube.com/watch?v=0LMkCS-QTPA&amp;list=PLe4PAiEiCzBTOiqDxgh71DLTwRVhXRST3&amp;index=2">#1a</a> <a href="https://www.youtube.com/watch?v=cOuHhzOnChQ&amp;list=PLe4PAiEiCzBTOiqDxgh71DLTwRVhXRST3&amp;index=3">#1b</a> <a href="https://www.youtube.com/watch?v=4I5jt_YiXkY&amp;list=PLe4PAiEiCzBTOiqDxgh71DLTwRVhXRST3&amp;index=5">#1c</a></td>
-<td><a href="docs/ex1.html">Exercise 1</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td><a href="02-problem%20solving%20with%20Java%201.pdf">Problem Solving with Java #1</a></td>
-<td><a href="f02-decision.pdf">Self Study Material #2</a> <br> <a href="f03-loops.pdf">Self Study Material #3</a></td>
-<td><a href="docs/ex2.html">Exercise 2</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td><a href="03-problem%20solving%20with%20Java%202.pdf">Problem Solving with Java #2</a></td>
-<td><a href="f04-scopes%20and%20IO.pdf">Self Study Material #4</a></td>
-<td><a href="docs/ex3.html">Exercise 3</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td><a href="04-arrays.pdf">Arrays</a></td>
-<td></td>
-<td><a href="docs/ex4.html">Exercise 4</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td><a href="05-methods.pdf">Methods</a></td>
-<td><a href="docs/ex5.html">Exercise 5</a></td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Class</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+        <h1 id="exercise-5">Exercise 5</h1>
+<style>
+    ol {
+        list-style-type: upper-alpha;
+    }
+    .ss  ol {
+        list-style-type: lower-roman;
+    }
+
+    body {
+        counter-reset: h3counter;
+    }
+
+    div.row {
+        /* display: inline; */
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+        counter-reset: h3counter;
+        column-rule-style: solid;
+        column-rule-color: #000;
+        column-rule-width: 1px;
+        width: 98%;
+    }
+    div.question {
+        display: inline-block;
+        vertical-align: top;
+    }
+    h3:before {
+        content: "Q" counter(h3counter) " ";
+        font-weight: bold;
+        counter-increment: h3counter;
+    }
+    h3 {
+        margin-bottom: 10px;
+    }
+    code {
+        background-color: rgba(200, 200, 200, 0.2);
+    }
+    .vscode-light pre {
+        background-color: rgba(200, 200, 200, 0.2);
+    }
+    .hljs-number {
+        color: initial;
+        font-weight: bold;
+    }
+    input +  div  ans { display: none; }
+    input +  div  ans:before { display: none; }
+    input:checked +  div  ans {
+        display: inline ;font-weight: bold; color: blue;
+    }
+    input:checked +  div  ans:before {
+        display: inline;
+        content: "☑️";
+    }
+    input {
+        display: block;
+        width: 200px;
+    }
+    input:before {
+        content: 'Reveal Answer';
+    }
+</style>
+<h1 id="a-reflection-questions">A. Reflection Questions</h1>
+<input type='checkbox'>
+<div class=question>
+<h3 id=""></h3>
+<p>Given the following usage of method, please define the method header</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span> mid = middle(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">13</span>);
+System.out.println(mid); <span class="hljs-comment">// print 10</span>
+...
+<span class="hljs-function">_____ <span class="hljs-title">middle</span> <span class="hljs-params">(_________)</span> </span>{
+
+}
+</div></code></pre>
+<ans>
+The method returns an `int` or at least a compatible of `int`. So we can say that it is an `int` method. Parameters are all integer, so simply write int. Writing float or double may also correct without looking at the implementation.
+<pre><code><code><div>int middle(int a, int b, int c)
+</div></code></code></pre>
+</ans>
+</div>
+<input type=checkbox>
+<div class=question>
+<h3 id="-1"></h3>
+<p>Name a problem with the following code</p>
+<pre><code class="language-java"><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>{
+    <span class="hljs-keyword">if</span> (a == <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span>;
+    
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+</div></code></pre>
+<ans>
+This is a void method, so it cannot return with a value. `return true;` is incorrect. 
+</ans>
+</div>
+<h1 id="b-programming-exercise">B. Programming exercise</h1>
+<h3 id="-2"></h3>
+<p>The following method prints the odd-index of an array, try to implement it.</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span>[] array = {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>};
+printOddIndex(array); 
+</div></code></pre>
+<p>It prints</p>
+<pre><code class="language-txt"><div>1 4 5
+</div></code></pre>
+<h3 id="-3"></h3>
+<p>The following method prints the odd-row-odd-column from a 2D array, try to implement it.</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span>[][] array2D = {{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>},{<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>},{<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>}};
+printOddOddIndex(array2D); 
+</div></code></pre>
+<p>it prints</p>
+<pre><code class="language-txt"><div>1 3
+7 9
+</div></code></pre>
+<h3 id="hard"><em>hard</em></h3>
+<p>The following method works like printOddOddIndex except that it returns such 2D array.</p>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span>[][] array2D = {{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>},{<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>},{<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>}};
+<span class="hljs-keyword">int</span>[][] newArray = getOddOddIndex(array2D);
+</div></code></pre>
+<p>Please be careful of the the return type of your method!</p>
+<h1 id="c-bigger-problem">C. Bigger Problem</h1>
+<p>Convert your No Thanks with at least three methods.</p>
+<p>If you are interested, please look at the project in advanced <a href="https://github.com/khwang0/COMP2026-2122PA1">https://github.com/khwang0/COMP2026-2122PA1</a></p>
 
         
         <script async type="text/javascript">
